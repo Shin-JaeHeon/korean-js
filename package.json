@@ -1,0 +1,21 @@
+{
+  "name": "korean-js",
+  "description": "Korean Processing Library",
+  "version": "0.1.0",
+  "author": "Shin-JaeHeon",
+  "main": "src/index.js",
+  "license": "MIT",
+  "bug": {
+    "url": "https://github.com/Shin-JaeHeon/korean-js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shin-JaeHeon/korean-js.git"
+  },
+  "dependencies": {
+    "region-name-kr": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.14.4"
+  }
+}

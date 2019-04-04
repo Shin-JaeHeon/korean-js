@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2018",
+    "sourceMap": false
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
