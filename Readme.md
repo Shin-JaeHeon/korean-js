@@ -4,9 +4,30 @@
 [![npm](https://img.shields.io/npm/l/korean-js.svg?registry_uri=https%3A%2F%2Fregistry.npmjs.com&style=flat-square)](https://opensource.org/licenses/MIT)
 
 
-## region
+## number
+`import Number from 'korean-js/number'` <br>
+> 주의, 위 코드는 기본 객체인 `Number`를 덮어쓰게 됩니다. `Number`를 사용할 경우에는 `number`나 `numberKr`등으로 대체하여야합니다
 
-지역명을 다루는 라이브러리로, `region-name-kr`를 사용하고 있습니다.
+숫자를 처리하는 부분입니다.
+###  NumberMode
+`import NumberMode from 'korean-js/number/mode`
+* `NumberMode.Unit4` : 숫자는 한국어로 바꾸지않고, 4자리마다 단위를 추가합니다.
+  * 예 : `toKorean(1234567890, NumberMode.Unit4) // 12억3456만7890`
+* `NumberMode.Unit` : 숫자는 한국어로 바꾸지않고, 각각에 단위를 추가합니다.
+  * 예 : `toKorean(1234567890, NumberMode.Unit4) // 1십2억3천4백5십6만7천8백9십`
+
+### toKorean(n, ?mode)
+* n : `number`, 한국어로 바꿀 숫자입니다.
+* mode : `NumberMode`, 변환 방법에 대해 설정합니다.
+
+mode가 설정되지 않으면 모두 한국어로 바꿉니다. <br>
+```
+toKorean(1234567890) // 십이억삼천사백오십육만칠천팔백구십
+```
+
+## region
+`import Region from 'region'`
+지역명을 다루는 클래스로, `region-name-kr`를 사용하고 있습니다.
 
 ### shortProvinceName2(list, ?allow3words)
 * list : 지역 리스트
