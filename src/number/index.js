@@ -4,7 +4,7 @@ const mode_1 = require("./mode");
 class Number {
     static toKorean(n, mode) {
         let temp = n.toString().split('');
-        if (mode === mode_1.default.KoreanUnit)
+        if (!mode)
             temp = temp.map((num) => this.koreanName[parseInt(num)]);
         let unitCount = 2;
         temp = temp.reverse().map((num, index) => {

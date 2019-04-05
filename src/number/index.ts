@@ -6,7 +6,7 @@ export default class Number {
 
   static toKorean(n: number, mode?: NumberMode): string {
     let temp = n.toString().split('');
-    if (mode === NumberMode.KoreanUnit) temp = temp.map((num: string) => this.koreanName[parseInt(num)]);
+    if (!mode) temp = temp.map((num: string) => this.koreanName[parseInt(num)]);
     let unitCount = 2;
     temp = temp.reverse().map((num: string, index) => {
       if (mode === NumberMode.Unit4) {

@@ -4,6 +4,5 @@ var NumberMode;
 (function (NumberMode) {
     NumberMode[NumberMode["Unit4"] = 2019] = "Unit4";
     NumberMode[NumberMode["Unit"] = 2020] = "Unit";
-    NumberMode[NumberMode["KoreanUnit"] = 2021] = "KoreanUnit";
 })(NumberMode || (NumberMode = {}));
 exports.default = NumberMode;
