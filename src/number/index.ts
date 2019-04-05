@@ -25,6 +25,6 @@ export default class Number {
         }
       }
     }).reverse();
-    return temp.join('').replace(/영./g, '').replace(/영/g, '').replace(/일(.)/g, '$1');
+    return temp.join('').replace(/영.?/g, '').replace(/0.?/g, '').replace(/일(.)/g, '$1');
   }
 }

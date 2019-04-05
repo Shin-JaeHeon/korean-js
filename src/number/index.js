@@ -27,7 +27,7 @@ class Number {
                 }
             }
         }).reverse();
-        return temp.join('').replace(/영./g, '').replace(/영/g, '').replace(/일(.)/g, '$1');
+        return temp.join('').replace(/영.?/g, '').replace(/0.?/g, '').replace(/일(.)/g, '$1');
     }
 }
 Number.koreanName = ['영', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
