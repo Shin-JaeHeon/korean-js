@@ -1,4 +1,6 @@
 # 체인지 로그
+## 0.4.1
+* `dateMode.MONTH_DATE`가 작동하지 아니하는 오류 수정
 ## 0.4.0
 * Date 관련 지원 추가(dateTime, date, time)
 ## 0.3.0
