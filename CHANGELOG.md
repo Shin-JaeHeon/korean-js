@@ -1,4 +1,6 @@
 # 체인지 로그
+## 0.4.0
+* Date 관련 지원 추가(dateTime, date, time)
 ## 0.3.0
 * Number 업데이트(toNumber)
 ## 0.2.0

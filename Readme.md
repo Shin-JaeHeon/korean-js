@@ -3,10 +3,48 @@
 [![npm](https://img.shields.io/npm/dt/korean-js.svg?style=flat-square)](https://www.npmjs.com/package/korean-js)
 [![npm](https://img.shields.io/npm/l/korean-js.svg?registry_uri=https%3A%2F%2Fregistry.npmjs.com&style=flat-square)](https://opensource.org/licenses/MIT)
 
+## Text
+`import Text from 'korean-js/text'`<br>
 
-## number
+> 주의, 위 코드는 `Text`객체를 덮어 쓸 수도 있습니다. `Text`를 사용할 경우에는 `text`나 `textKR`등으로 대체하여야합니다
+
+### dateMode
+* 띄어쓰기
+  * `''` 또는 `' '`이외의 구분자가 필요한 경우에는 아래의 `TRIM` 및 `SPACE` 대신 문자열을 사용할 수 있습니다. 
+  * TRIM : `'''` 예) `2019년4월8일20시19분48초`
+  * SPACE : `' '` 예) `2019년 4월 8일 20시 19분 48초`
+* 표시 범위
+  * 시간
+    * SECOND : 초까지 표시합니다. 예) `20시 19분 48초` 
+    * MINUTES : 분까지 표시합니다. 예) `20시 19분`
+    * HOUR : 시간까지 표시합니다. 예) `20시`
+  * 날짜
+    * DATE : 일까지 표시합니다. 예) `2019년 4월 8일`
+    * MONTH : 월까지 표시합니다. 예) `2019년 4월` 
+    * YEAR : 년까지 표시합니다. 예) `2019년`
+    * MONTH_DATE : 월, 일만 표기합니다. 예) `4월 8일`
+
+### dateTime(date, mode)
+* date : Date
+* mode : dateMode =  `[dateMode.SPACE, dateMode.DATE, dateMode.SECOND]`
+
+날짜 + 시간을 반환합니다. 예) `2019년 4월 8일 20시 19분 48초`
+
+### date(date, mode)
+* date : Date
+* mode : dateMode =  `[dateMode.SPACE, dateMode.DATE]`
+
+날짜를 반환합니다. 예) `20시 19분 48초`
+
+### time(date, mode)
+* date : Date
+* mode : dateMode =  `[dateMode.SPACE, dateMode.DATE]`
+
+시간을 반환합니다. 예) `2019년 4월 8일`
+
+## Number
 `import Number from 'korean-js/number'` <br>
-> 주의, 위 코드는 기본 객체인 `Number`를 덮어쓰게 됩니다. `Number`를 사용할 경우에는 `number`나 `numberKr`등으로 대체하여야합니다
+> 주의, 위 코드는 기본 객체인 `Number`를 덮어쓰게 됩니다. `Number`를 사용할 경우에는 `number`나 `numberKR`등으로 대체하여야합니다
 
 숫자를 처리하는 부분입니다.
 ###  NumberMode
@@ -34,7 +72,7 @@ toKorean(1234567890) // 십이억삼천사백오십육만칠천팔백구십
 * `삼천백십오`
 
 `천`, `백`, `십` 앞에서는 `일`을 생략해도 정상적으로 인식이 가능합니다.
-## region
+## Region
 `import Region from 'region'`
 지역명을 다루는 클래스로, `region-name-kr`를 사용하고 있습니다.
 
