@@ -1,4 +1,5 @@
 import * as hangul from 'hangul-js';
+import HangulMode from "./HangulMode";
 
 export default class Hangul {
   /**

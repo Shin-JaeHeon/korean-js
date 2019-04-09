@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const hangul = require("hangul-js");
+const HangulMode_1 = require("./HangulMode");
 class Hangul {
     static disassemble(str, grouped = false) {
         // @ts-ignore
@@ -65,11 +66,11 @@ class Hangul {
      */
     static correctJosa(word, mode) {
         const isEndsWithConsonant = hangul.endsWithConsonant(word);
-        if (mode === HangulMode.JuGyeokJosa)
+        if (mode === HangulMode_1.default.JuGyeokJosa)
             return isEndsWithConsonant ? '은' : '는';
-        else if (mode === HangulMode.MokJeokGyeokJosa)
+        else if (mode === HangulMode_1.default.MokJeokGyeokJosa)
             return isEndsWithConsonant ? '을' : '를';
-        else if (mode === HangulMode.BoGyeokJosa)
+        else if (mode === HangulMode_1.default.BoGyeokJosa)
             return isEndsWithConsonant ? '이' : '가';
     }
 }

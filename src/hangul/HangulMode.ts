@@ -7,3 +7,5 @@ enum HangulMode {
   보격조사 = 2021,
 
 }
+
+export default HangulMode;

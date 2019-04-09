@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var HangulMode;
 (function (HangulMode) {
     HangulMode[HangulMode["JuGyeokJosa"] = 2019] = "JuGyeokJosa";
@@ -7,3 +9,4 @@ var HangulMode;
     HangulMode[HangulMode["BoGyeokJosa"] = 2021] = "BoGyeokJosa";
     HangulMode[HangulMode["\uBCF4\uACA9\uC870\uC0AC"] = 2021] = "\uBCF4\uACA9\uC870\uC0AC";
 })(HangulMode || (HangulMode = {}));
+exports.default = HangulMode;

@@ -2,7 +2,9 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2018",
-    "sourceMap": false
+    "sourceMap": false,
+    "declaration": true,
+    "declarationDir": "types"
   },
   "exclude": [
     "node_modules"
