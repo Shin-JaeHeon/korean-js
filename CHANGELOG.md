@@ -1,4 +1,7 @@
 # 체인지 로그
+## 0.5.0
+* `hangul-js`의 함수 추가
+* `correctJosa` 함수 추가
 ## 0.4.1
 * `dateMode.MONTH_DATE`가 작동하지 아니하는 오류 수정
 ## 0.4.0

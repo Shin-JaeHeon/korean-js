@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.14.4.tgz#1c586b991457cbb58fef51bc4e0cfcfa347714b5"
   integrity sha512-DT25xX/YgyPKiHFOpNuANIQIVvYEwCWXgK2jYYwqgaMrYE6+tq+DtmMwlD3drl6DJbUwtlIDnn0d7tIn/EbXBg==
 
+hangul-js@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/hangul-js/-/hangul-js-0.2.5.tgz#de630731db3acced3d42eefbe8530851812f5e0f"
+  integrity sha512-ZafxR9uUgS7ZpYgMUFRWA4/ixems1PGLFuSqfoE2L0RnAmqvLqV39SWp+v90htBUA8Y5SMbF7Db6pNWe/7wjRw==
+
 region-name-kr@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/region-name-kr/-/region-name-kr-2.0.0.tgz#3d34d8d9c3e691abff02facc86be875032ffedd0"
