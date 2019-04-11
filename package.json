@@ -1,7 +1,7 @@
 {
   "name": "korean-js",
   "description": "Korean Processing Library",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "author": "Shin-JaeHeon",
   "main": "src/index.js",
   "license": "MIT",
@@ -13,8 +13,9 @@
     "url": "https://github.com/Shin-JaeHeon/korean-js.git"
   },
   "dependencies": {
+    "hangul-js": "^0.2.5",
     "region-name-kr": "^2.0.0",
-    "hangul-js": "^0.2.5"
+    "inko": "^1.0.6"
   },
   "devDependencies": {
     "@types/node": "^10.14.4"

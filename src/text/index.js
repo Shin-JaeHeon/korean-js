@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const dateMode_1 = require("./dateMode");
+const Inko = require("inko");
 class Text {
     static dateTime(date, mode = [dateMode_1.default.SPACE, dateMode_1.default.DATE, dateMode_1.default.SECOND]) {
         if (!mode[1])
@@ -33,5 +34,12 @@ class Text {
             str += `${date.getSeconds()}초`;
         return str;
     }
+    static ko2en(str, option = { allowDoubleConsonant: false }) {
+        return this.inko.ko2en(str, option);
+    }
+    static en2ko(str, option = { allowDoubleConsonant: false }) {
+        return this.inko.en2ko(str, option);
+    }
 }
+Text.inko = new Inko();
 exports.default = Text;

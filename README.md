@@ -179,6 +179,8 @@ Hangul.rangeSearch(a, b); // [[2, 3], [4, 5]]
 
 > 주의, 위 코드는 `Text`객체를 덮어 쓸 수도 있습니다. `Text`를 사용할 경우에는 `text`나 `textKR`등으로 대체하여야합니다
 
+텍스트를 다루는 클래스입니다. `inko@1.0.6` 과 오리지널 함수가 포함되어있습니다.
+
 ### dateMode
 * 띄어쓰기
   * `''` 또는 `' '`이외의 구분자가 필요한 경우에는 아래의 `TRIM` 및 `SPACE` 대신 문자열을 사용할 수 있습니다. 
@@ -194,6 +196,26 @@ Hangul.rangeSearch(a, b); // [[2, 3], [4, 5]]
     * MONTH : 월까지 표시합니다. 예) `2019년 4월` 
     * YEAR : 년까지 표시합니다. 예) `2019년`
     * MONTH_DATE : 월, 일만 표기합니다. 예) `4월 8일`
+    
+### InkoOption
+`inko` 라이브러리의 설정 인터페이스입니다.
+```typescript
+declare interface InkoOption {
+  allowDoubleConsonant: boolean
+}
+```
+ 
+### ko2en(str, option)
+* str : string
+* option ?: InkoOption
+
+한글을 로마자로 바꿉니다.
+
+### en2ko(str, option)
+* str : string
+* option ?: InkoOption
+
+로마자를 한글로 바꿉니다.
 
 ### dateTime(date, mode)
 * date : Date

@@ -1,4 +1,4 @@
-import HangulMode from "./HangulMode";
+import HangulMode from './HangulMode';
 export default class Hangul {
     /**
      * 한글을 자음/모음으로 분리하여 문자들의 배열로 돌려줍니다. 이 때 한글이 아닌 문자는 그대로 반환됩니다.
