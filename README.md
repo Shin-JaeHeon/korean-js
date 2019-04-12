@@ -242,10 +242,104 @@ declare interface InkoOption {
 숫자를 처리하는 부분입니다.
 ###  NumberMode
 `import NumberMode from 'korean-js/number/mode`
-* `NumberMode.Unit4` : 숫자는 한국어로 바꾸지않고, 4자리마다 단위를 추가합니다.
-  * 예 : `toKorean(1234567890, NumberMode.Unit4) // 12억3456만7890`
-* `NumberMode.Unit` : 숫자는 한국어로 바꾸지않고, 각각에 단위를 추가합니다.
-  * 예 : `toKorean(1234567890, NumberMode.Unit4) // 1십2억3천4백5십6만7천8백9십`
+* 숫자
+  * `NumberMode.Unit4` : 숫자는 한국어로 바꾸지않고, 4자리마다 단위를 추가합니다.
+    * 예 : `toKorean(1234567890, NumberMode.Unit4) // 12억3456만7890`
+  * `NumberMode.Unit` : 숫자는 한국어로 바꾸지않고, 각각에 단위를 추가합니다.
+    * 예 : `toKorean(1234567890, NumberMode.Unit4) // 1십2억3천4백5십6만7천8백9십`
+* 전화번호(숫자)
+  * `phone`
+  * `phoneSKT`
+  * `NetworkIOT`
+  * `NetworkPC`
+  * `phoneKTF`
+  * `phoneLGT`
+  * `Seoul`
+  * `Gyeonggi`
+  * `Incheon`
+  * `Gangwon`
+  * `Chungnam`
+  * `Chungbuk`
+  * `Daejeon`
+  * `Sejong`
+  * `Busan`
+  * `Ulsan`
+  * `Daegu`
+  * `Gyeongbuk`
+  * `Gyeongnam`
+  * `jeonbuk`
+  * `Gwangju`
+  * `Jeonnam`
+  * `Jeju`
+  * `핸드폰`
+  * `핸드폰SKT`
+  * `IOT통신`
+  * `PC통신`
+  * `핸드폰KTF`
+  * `핸드폰LGT`
+  * `서울`
+  * `경기`
+  * `인천`
+  * `강원`
+  * `충남`
+  * `충북`
+  * `대전`
+  * `세종`
+  * `부산`
+  * `울산`
+  * `대구`
+  * `경북`
+  * `경남`
+  * `전북`
+  * `광주`
+  * `전남`
+  * `제주`
+* 지역(전화번호를 지역이름으로)
+  * `010`
+  * `011`
+  * `012`
+  * `013`
+  * `016`
+  * `014`
+  * `02`
+  * `031`
+  * `032`
+  * `033`
+  * `041`
+  * `042`
+  * `043`
+  * `044`
+  * `051`
+  * `052`
+  * `053`
+  * `054`
+  * `055`
+  * `061`
+  * `062`
+  * `063`
+  * `064`
+### toPhoneNumberString(number, gukbeon, split, split2)
+* number : number, 예) 12345678
+* gukbeon : 국번, 예) NumberMode.Seoul, NumberMode.서울
+* split : 전화번호 구분자(기본값 : '')
+* split2 : 국번 구분자(기본값 : '') : '-'이면 공이-XXXX-XXXX, ')'이면 공이)XXXX-XXXX
+
+숫자를 한글로 표기된 전화번호로 바꿉니다.
+
+```javascript
+number.toPhoneNumberString(12345678, NumberMode.Seoul); //공이일이삼사오육칠팔
+```
+### toPhoneNumber(number, gukbeon, split, split2)
+* number : number, 예) 12345678
+* gukbeon : 국번, 예) NumberMode.Seoul, NumberMode.서울
+* split : 전화번호 구분자(기본값 : '-')
+* split2 : 국번 구분자(기본값 : '-') : '-'이면 02-XXXX-XXXX, ')'이면 02)XXXX-XXXX
+
+한글을 숫자로 표기된 전화번호로 바꿉니다.
+
+```javascript
+number.toPhoneNumber('일이삼사오륙칠팔', NumberMode.Seoul); //02-1234-5678
+```
 
 ### toKorean(n, ?mode)
 * n : `number`, 한국어로 바꿀 숫자입니다.
@@ -313,8 +407,20 @@ mode가 2일 경우 한자, 카타카나 병기(`世宗(セジョン)特別自�
 
 고성군의 경우 고성군(경남), 고성군(강원)으로 구분해야 변환이 가능합니다.
 
-#### 기본 예시
+#### `mode = 2` 예시
 * 특별/광역시/도 : `세종특별자치시`  → `世宗(セジョン)特別自治市`
-* 특별/광역시 구/군 :`서울특별시 강남구` → `ソウル特別市　永登浦(ヨンドゥンポ)区`
+* 특별/광역시 구/군 :`서울특별시 영등포구` → `ソウル特別市　永登浦(ヨンドゥンポ)区`
 * 도 시/군 : `강원도 평창군` →  `江原(カンウォン)道　平昌(ピョンチャン)郡`
 * 도 시 구 : `경기도 수원시 권선구` →  `京畿(キョンギ)道　水原(スウォン)市　勧善(クォンソン)区`
+
+#### `mode = 1` 예시
+* 특별/광역시/도 : `세종특별자치시`  → `セジョントゥクピョルジャチシ`
+* 특별/광역시 구/군 :`서울특별시 영등포구` → `ソウルトゥクピョルシ　ヨンドゥンポグ`
+* 도 시/군 : `강원도 평창군` →  `カンウォンド　ピョンチャングン`
+* 도 시 구 : `경기도 수원시 권선구` →  `キョンギド　スウォンシ　クォンソング`
+
+#### `mode = 0` 예시
+* 특별/광역시/도 : `세종특별자치시`  → `世宗特別自治市`
+* 특별/광역시 구/군 :`서울특별시 영등포구` → `ソウル特別市　永登浦区`
+* 도 시/군 : `강원도 평창군` →  `江原道　平昌郡`
+* 도 시 구 : `경기도 수원시 권선구` →  `京畿道　水原市　勧善区`

@@ -1,7 +1,7 @@
 import NumberMode from './mode';
 
 export default class Number {
-  private static koreanName = ['영', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
+  private static koreanName = ['공', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
   private static koreanUnitName = ['십', '백', '천', '', '만', '억', '조'];
 
   static toKorean(n: number, mode?: NumberMode): string {
@@ -28,11 +28,12 @@ export default class Number {
     return temp.join('').replace(/[영0].?/g, '').replace(/일([십백천])/g, '$1');
   }
 
-  static toNumber(str: string) {
+  static toNumber(str: string): number {
     const temp = str.replace(/천백/g, '천일백').replace(/([백])(십)/g, '백일십').split('');
     let sum = 0;
     let is4 = false;
     let digit = 0;
+    //@ts-ignore
     return temp.reduce((prev, current, index) => {
       let tempSum = parseInt(prev.join(''));
       switch (this.koreanUnitName.indexOf(current)) {
@@ -69,5 +70,29 @@ export default class Number {
       }
       return index === temp.length - 1 ? sum + parseInt(prev.join('')) : prev;
     }, [0]);
+  }
+
+  /**
+   * @param number
+   * @param gukbeon
+   * @param split 전화번호 구분자(기본값 : '-')
+   * @param split2 국번 구분자(기본값 : '-') : '-'이면 02-XXXX-XXXX, ')'이면 02)XXXX-XXXX
+   */
+  static toPhoneNumberString(number: number, gukbeon: NumberMode, split: string = '', split2: string = ''): string {
+    const temp = number.toString().split('').map(num => this.koreanName[num]);
+    temp.splice(4, 0, split);
+    return `공${gukbeon.toString().split('').map(n => this.koreanName[n]).join('')}${split2}${temp.join('')}`
+  }
+
+  /**
+   * @param number
+   * @param gukbeon
+   * @param split 전화번호 구분자(기본값 : '-')
+   * @param split2 국번 구분자(기본값 : '-') : '-'이면 02-XXXX-XXXX, ')'이면 02)XXXX-XXXX
+   */
+  static toPhoneNumber(number: string, gukbeon: NumberMode, split: string = '-', split2: string = '-'): string {
+    const temp = number.toString().replace(/륙/g, '육').split('').map(num => this.koreanName.indexOf(num).toString());
+    temp.splice(4, 0, split);
+    return `0${gukbeon}${split2}${temp.join('')}`
   }
 }

@@ -162,10 +162,10 @@ path-is-absolute@^1.0.0:
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
   integrity sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
 
-region-name-kr@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/region-name-kr/-/region-name-kr-2.0.0.tgz#3d34d8d9c3e691abff02facc86be875032ffedd0"
-  integrity sha512-TkKwxxRspz0nj/6g/BHT0xC7waXMQO50mZrLTT5V2sfaTZrs0nArJM+7qOgP6O4dstwwILnOEGVlY5YII4qgAw==
+region-name-kr@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/region-name-kr/-/region-name-kr-2.0.1.tgz#4934292de2c4177dcb7d4d2a90d8a5b0f767dd31"
+  integrity sha512-zy/RnjfqH9Ae87BCsnZKVmzcb+Tq4r8Dh4M5zcqO//cTCy24R9M9DUeYDgfLjdCkb93NUoG5kDW6mFfJ7jArJQ==
 
 supports-color@5.4.0:
   version "5.4.0"

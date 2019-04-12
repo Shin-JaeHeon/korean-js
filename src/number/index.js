@@ -34,6 +34,7 @@ class Number {
         let sum = 0;
         let is4 = false;
         let digit = 0;
+        //@ts-ignore
         return temp.reduce((prev, current, index) => {
             let tempSum = parseInt(prev.join(''));
             switch (this.koreanUnitName.indexOf(current)) {
@@ -71,7 +72,29 @@ class Number {
             return index === temp.length - 1 ? sum + parseInt(prev.join('')) : prev;
         }, [0]);
     }
+    /**
+     * @param number
+     * @param gukbeon
+     * @param split 전화번호 구분자(기본값 : '-')
+     * @param split2 국번 구분자(기본값 : '-') : '-'이면 02-XXXX-XXXX, ')'이면 02)XXXX-XXXX
+     */
+    static toPhoneNumberString(number, gukbeon, split = '', split2 = '') {
+        const temp = number.toString().split('').map(num => this.koreanName[num]);
+        temp.splice(4, 0, split);
+        return `공${gukbeon.toString().split('').map(n => this.koreanName[n]).join('')}${split2}${temp.join('')}`;
+    }
+    /**
+     * @param number
+     * @param gukbeon
+     * @param split 전화번호 구분자(기본값 : '-')
+     * @param split2 국번 구분자(기본값 : '-') : '-'이면 02-XXXX-XXXX, ')'이면 02)XXXX-XXXX
+     */
+    static toPhoneNumber(number, gukbeon, split = '-', split2 = '-') {
+        const temp = number.toString().replace(/륙/g, '육').split('').map(num => this.koreanName.indexOf(num).toString());
+        temp.splice(4, 0, split);
+        return `0${gukbeon}${split2}${temp.join('')}`;
+    }
 }
-Number.koreanName = ['영', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
+Number.koreanName = ['공', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
 Number.koreanUnitName = ['십', '백', '천', '', '만', '억', '조'];
 exports.default = Number;
