@@ -7,10 +7,10 @@ declare interface InkoOption {
 }
 
 declare interface SpellCheckResult {
-  type: string,
+  type?: string,
   token: string,
   suggestions: Array<string>,
-  context: string,
+  context?: string,
   info: string
 }
 

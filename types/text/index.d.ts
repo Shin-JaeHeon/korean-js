@@ -3,10 +3,10 @@ declare interface InkoOption {
     allowDoubleConsonant: boolean;
 }
 declare interface SpellCheckResult {
-    type: string;
+    type?: string;
     token: string;
     suggestions: Array<string>;
-    context: string;
+    context?: string;
     info: string;
 }
 export default class Text {

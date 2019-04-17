@@ -208,10 +208,10 @@ declare interface InkoOption {
 `hanspell` 라이브러리의 결과 인터페이스입니다.
 ```typescript
 declare interface SpellCheckResult {
-  type: string,
+  type?: string,
   token: string,
   suggestions: Array<string>,
-  context: string,
+  context?: string,
   info: string
 }
 
