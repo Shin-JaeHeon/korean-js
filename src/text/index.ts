@@ -1,8 +1,17 @@
 import dateMode from './dateMode';
 import * as Inko from 'inko';
+import * as hanspell from 'hanspell';
 
 declare interface InkoOption {
   allowDoubleConsonant: boolean,
+}
+
+declare interface SpellCheckResult {
+  type: string,
+  token: string,
+  suggestions: Array<string>,
+  context: string,
+  info: string
 }
 
 export default class Text {
@@ -39,4 +48,17 @@ export default class Text {
   static en2ko(str: string, option: InkoOption = {allowDoubleConsonant: false}): string {
     return this.inko.en2ko(str, option);
   }
+
+  /**
+   * 맞춤법 검사
+   * @param str 맞춤법 검사를 할 문장
+   * @param useDaum 다음 맞춤법 검사기의 사용 여부
+   * @param timeout
+   */
+  static spellCheck(str: string, useDaum = false, timeout = 10000): Promise<Array<SpellCheckResult>> {
+    return new Promise((resolve, reject) => {
+      (useDaum ? hanspell.spellCheckByDAUM : hanspell.spellCheckByPNU)(str, timeout, result => resolve(result), null, reject);
+    });
+  }
+
 }

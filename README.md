@@ -27,7 +27,7 @@
   
   
 ### correctJosa
-* str : string 조사를 찾을 단어
+* str : `string` 조사를 찾을 단어
 * mode : HangulMode 찾을 조사의 종류
 올바른 조사를 반환합니다. 
 #### 예시
@@ -179,7 +179,7 @@ Hangul.rangeSearch(a, b); // [[2, 3], [4, 5]]
 
 > 주의, 위 코드는 `Text`객체를 덮어 쓸 수도 있습니다. `Text`를 사용할 경우에는 `text`나 `textKR`등으로 대체하여야합니다
 
-텍스트를 다루는 클래스입니다. `inko@1.0.6` 과 오리지널 함수가 포함되어있습니다.
+텍스트를 다루는 클래스입니다. `inko@1.0.6` 및 `hanspell@0.7.2`와 오리지널 함수가 포함되어있습니다.
 
 ### dateMode
 * 띄어쓰기
@@ -204,16 +204,37 @@ declare interface InkoOption {
   allowDoubleConsonant: boolean
 }
 ```
- 
+### SpellCheckResult
+`hanspell` 라이브러리의 결과 인터페이스입니다.
+```typescript
+declare interface SpellCheckResult {
+  type: string,
+  token: string,
+  suggestions: Array<string>,
+  context: string,
+  info: string
+}
+
+```
+### checkSpell(str, useDaum, timeout)
+* 파라메터
+  * str : `string`
+  * useDaum ?: `boolean`, 기본값은 `boolean`
+  * timeout ?: `number`, 기본값은 10000(10초)
+* 반환 값 
+  * `Promise<Array<SpellCheckResult>>`
+
+맞춤법 검사를 합니다. 기본 검사기는 부산대학교 인공지능연구실 (주)나라인포테크의 맞춤법 검사기 입니다.
+
 ### ko2en(str, option)
-* str : string
-* option ?: InkoOption
+* str : `string`
+* option ?: `InkoOption`
 
 한글을 로마자로 바꿉니다.
 
 ### en2ko(str, option)
-* str : string
-* option ?: InkoOption
+* str : `string`
+* option ?: `InkoOption`
 
 로마자를 한글로 바꿉니다.
 
