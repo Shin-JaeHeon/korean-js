@@ -93,6 +93,7 @@ export default class Hangul {
     if (mode === HangulMode.JuGyeokJosa) return isEndsWithConsonant ? '은' : '는';
     else if (mode === HangulMode.MokJeokGyeokJosa) return isEndsWithConsonant ? '을' : '를';
     else if (mode === HangulMode.BoGyeokJosa) return isEndsWithConsonant ? '이' : '가';
+    return '';
   }
 
 }
